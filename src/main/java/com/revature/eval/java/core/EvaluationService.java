@@ -14,8 +14,40 @@ public class EvaluationService {
 	 * @return
 	 */
 	public String acronym(String phrase) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		//Look at the entire phrase and check for spaces and symbols
+		//if it locates a symbol, 
+		int LengthOfPhrase = phrase.length();
+		String tPhrase = phrase;
+		String PhraseToAcronym = "";
+//		
+//		for(int i = 0; i < LengthOfPhrase; i++)
+//		{
+//			if(phrase.charAt(i) == ' ' ||) {
+//					
+//				
+//			}
+//			else {
+//				
+//			}
+//		}
+		
+		//SepPhrase = phrase.split(phrase);
+		
+		PhraseToAcronym += tPhrase.toUpperCase().charAt(0);
+		
+		for(int i = 1; i <= LengthOfPhrase - 1; i++)
+		{
+			if(tPhrase.charAt(i-1) == ' ' || (tPhrase.charAt(i-1) == '-')) {
+				PhraseToAcronym += tPhrase.toUpperCase().charAt(i);
+			}
+		}
+		
+		System.out.println("Phrase:" + tPhrase);
+		System.out.println("Acronym:" + PhraseToAcronym);
+		
+		
+		
+		return PhraseToAcronym;
 	}
 
 	/**
@@ -34,8 +66,110 @@ public class EvaluationService {
 	 * @return
 	 */
 	public int getScrabbleScore(String string) {
-		// TODO Write an implementation for this method declaration
-		return 0;
+		
+		//Set the initial total points to 0 
+		//Go through the entire word
+		//Within each letter of the word, check the point value 
+		//Then add each point to the current point total
+		
+		int total = 0;
+		
+		//going each letter in the word
+		for(int i = 0; i < string.length(); i++) {
+			
+			switch(string.charAt(i)) {
+				case 'a':
+					total += 1;
+					break;
+				case 'e':
+					total += 1;
+					break;
+				case 'i':
+					total += 1;
+					break;
+				case'o':
+					total += 1;
+					break;
+				case'O':
+					total += 1;
+					break;
+				case'u':
+					total += 1;
+					break;
+				case 'l':
+					total += 1;
+					break;
+				case 'n':
+					total += 1;
+					break;
+				case'r':
+					total += 1;
+					break;
+				case 's':
+					total += 1;
+					break;
+				case 't':
+					total += 1;
+					break;
+				case 'd':
+					total += 2;
+					break;
+				case 'g':
+					total += 2;
+					break;
+				case 'b':
+					total += 3;
+					break;
+				case 'B':
+					total += 3;
+					break;
+				case 'c':
+					total += 3;
+					break;
+				case'm':
+					total += 3;
+					break;
+				case 'p':
+					total += 3;
+					break;
+				case 'f':
+					total += 4;
+					break;
+				case 'h':
+					total += 4;
+					break;
+				case 'v':
+					total += 4;
+					break;
+				case 'w':
+					total += 4;
+					break;
+				case 'y':
+					total += 4;
+					break;
+				case 'k':
+					total += 5;
+					break;
+				case 'j':
+					total += 8;
+					break;
+				case 'x':
+					total += 8;
+					break;
+				case 'q':
+					total += 10;
+					break;
+				case 'z':
+					total += 10;
+					break;
+					
+			}
+			
+		}
+		
+		//System.out.print(total);
+		return total;
+		
 	}
 
 	/**
@@ -68,10 +202,45 @@ public class EvaluationService {
 	 * 
 	 * Note: As this exercise only deals with telephone numbers used in
 	 * NANP-countries, only 1 is considered a valid country code.
+	 * @throws IllegalAccessException 
 	 */
 	public String cleanPhoneNumber(String string) {
-		// TODO Write an implementation for this method declaration
-		return null;
+		
+		String TempPhoneNum = string;
+		String newPhoneNum = "";
+		//String phoneNumArray[] = new String[TempPhoneNum.length()]; 
+		
+//		for(int i = 0; i < TempPhoneNum.length() ;i++) 
+//		{
+//			if(TempPhoneNum.subSequence(0, 3) == "+1 " || TempPhoneNum.charAt(i) == '(' || TempPhoneNum.charAt(i) == ')'
+//					|| TempPhoneNum.charAt(i) == '-' || TempPhoneNum.charAt(i) == '.' || TempPhoneNum.charAt(i) == ' ')   
+//			{
+//				newPhoneNum = new StringBuilder().append(i).toString();
+//			}
+		/*
+		 * try { newPhoneNum = TempPhoneNum.replaceAll("[^0-9]","");
+		 * }catch(IllegalArgumentException e) {
+		 * System.out.println("You have typed in an invalid phone number!"); }
+		 */
+		
+		    
+			
+		if(TempPhoneNum.contains("abc") || TempPhoneNum.contains("@:!")) {
+			throw new IllegalArgumentException();
+		}
+		
+		newPhoneNum = TempPhoneNum.replaceAll("[^0-9]","");
+			
+		if(newPhoneNum.length() > 10) {
+			throw new IllegalArgumentException();
+		}
+			
+		
+			
+//		}
+		
+//		System.out.println();
+		return newPhoneNum;
 	}
 
 	/**
@@ -260,6 +429,7 @@ public class EvaluationService {
 	 */
 	public int solveWordProblem(String string) {
 		// TODO Write an implementation for this method declaration
+		
 		return 0;
 	}
 
