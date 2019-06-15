@@ -89,6 +89,7 @@ public class EvaluationServiceTest {
 
 	/*******************************************************************
 	 * Question 3
+	 * @throws IllegalArugmentException 
 	 ******************************************************************/
 	@Test
 	public void cleansTheNumber() {

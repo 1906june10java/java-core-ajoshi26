@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -254,7 +255,35 @@ public class EvaluationService {
 	 */
 	public Map<String, Integer> wordCount(String string) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		 
+		String [] SplitString;
+		Map<String, Integer> trackWord = new HashMap<>();
+		
+		if(string.contains(",\n") ){
+			SplitString = string.split(",\n"); 
+		}
+		else if(string.contains(",")) {
+			SplitString = string.split(","); 
+		}
+		else {
+			SplitString = string.split(" ");
+		}
+			
+		 
+		for(int i = 0; i < SplitString.length;i++) {
+			if(trackWord.containsKey(SplitString[i])) {
+				int counter = trackWord.get(SplitString[i]);
+				trackWord.put(SplitString[i], counter + 1);
+			}
+			else {
+				trackWord.put(SplitString[i], 1);
+			}
+		}
+		
+		
+		
+		return trackWord;
+		
 	}
 
 	/**
@@ -297,7 +326,27 @@ public class EvaluationService {
 
 		public int indexOf(T t) {
 			// TODO Write an implementation for this method declaration
-			return 0;
+			
+			int middle = sortedList.size()/2;
+			int index = 0;
+			
+			//System.out.println(middle);
+			
+			for(int i = 0; i < sortedList.size(); i++)
+			{
+				if(sortedList.get(middle) == t) {
+					index = middle;
+				}
+//				else if(sortedList.get(middle) > t) {
+//					
+//				}
+				
+			}
+			
+			return index;
+			
+			
+			
 		}
 
 		public BinarySearch(List<T> sortedList) {
@@ -427,8 +476,13 @@ public class EvaluationService {
 	 * @param string
 	 * @return
 	 */
+	@SuppressWarnings("unused")
 	public int solveWordProblem(String string) {
 		// TODO Write an implementation for this method declaration
+		
+		// Use Split method to first seperate each of the words and numbers
+		// Whenever it encounters a number(positive or negative), store it as a int variable 
+		// Whenever it encounters a operational word, return the operation with the stored int variables
 		
 		return 0;
 	}
