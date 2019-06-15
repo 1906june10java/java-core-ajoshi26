@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -327,23 +328,32 @@ public class EvaluationService {
 		public int indexOf(T t) {
 			// TODO Write an implementation for this method declaration
 			
-			int middle = sortedList.size()/2;
-			int index = 0;
-			
-			//System.out.println(middle);
-			
-			for(int i = 0; i < sortedList.size(); i++)
-			{
-				if(sortedList.get(middle) == t) {
-					index = middle;
-				}
-//				else if(sortedList.get(middle) > t) {
-//					
+//			int middle = sortedList.size()/2;
+//			int last = sortedList.size() - 1;
+//			int index = 0;
+//			
+//			System.out.println(t);
+//			
+//			for(int i = 0; i < sortedList.size(); i++)
+//			{
+//				if(sortedList.get(middle) == t) {
+//					index = (int)t;
 //				}
-				
-			}
+//				else if(sortedList.get(middle) == sortedList.get(0)) {
+//					return index;
+//				}
+//				else if (sortedList.get(middle) == sortedList.get(last)){
+//					index = last;
+//				}
+//				else
+//				{
+//					//index = Collections.indexedBinarySearch(i,t);
+//				}
+//				
+//			}
 			
-			return index;
+			
+		return index;
 			
 			
 			
@@ -381,6 +391,7 @@ public class EvaluationService {
 	 */
 	public boolean isArmstrongNumber(int input) {
 		// TODO Write an implementation for this method declaration
+		
 		return false;
 	}
 
@@ -484,7 +495,67 @@ public class EvaluationService {
 		// Whenever it encounters a number(positive or negative), store it as a int variable 
 		// Whenever it encounters a operational word, return the operation with the stored int variables
 		
-		return 0;
+		String[] SplitProblem = string.split(" ");
+		
+		String X = SplitProblem[2];
+		String Y = SplitProblem[4];
+		
+		int x = 0; 
+		int y = 0;
+		int operation = 0;
+		
+		//System.out.println(x);
+		
+			
+			if(SplitProblem[4].contains("?")) {
+				Y = SplitProblem[4].replace("?", "");
+			}
+			else if(SplitProblem[4].contains("by"))
+			{
+				Y = SplitProblem[5];
+				if(SplitProblem[5].contains("?")) {
+					Y = SplitProblem[5].replace("?", "");
+				}
+			}
+		
+		//System.out.println(x);
+		//System.out.println(y);
+		
+		//System.out.println(SplitProblem[3]);
+		
+//		if(SplitProblem[2].contains("*[0-9]") && SplitProblem[2].contains("*[0-9]"))
+//		{
+//			X = SplitProblem[2];
+//			Y = SplitProblem[4];
+//		}
+		
+		x = Integer.parseInt(X);
+		y = Integer.parseInt(Y);
+		
+		System.out.println(x);
+		System.out.println(y);
+		
+		
+		switch(SplitProblem[3]) {
+			case "plus":
+				operation = x + y;
+				break;
+			case "minus":
+				operation = x - y;
+				break;
+			case "multiplied":
+				operation = x * y;
+				break;
+			case "divided":
+				operation = x / y;
+				break;
+			default:
+				System.out.println("Can't recognize operator symbol");
+			
+		}
+		
+		return operation;
+		
 	}
 
 }
