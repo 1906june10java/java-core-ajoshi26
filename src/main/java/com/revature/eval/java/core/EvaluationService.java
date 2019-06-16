@@ -1,5 +1,6 @@
 package com.revature.eval.java.core;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -328,29 +329,25 @@ public class EvaluationService {
 		public int indexOf(T t) {
 			// TODO Write an implementation for this method declaration
 			
-//			int middle = sortedList.size()/2;
-//			int last = sortedList.size() - 1;
-//			int index = 0;
+			int middle = sortedList.size()/2;
+			int last = sortedList.size() - 1;
+			int index = 0;
 //			
 //			System.out.println(t);
 //			
-//			for(int i = 0; i < sortedList.size(); i++)
-//			{
-//				if(sortedList.get(middle) == t) {
-//					index = (int)t;
-//				}
-//				else if(sortedList.get(middle) == sortedList.get(0)) {
-//					return index;
-//				}
-//				else if (sortedList.get(middle) == sortedList.get(last)){
-//					index = last;
-//				}
-//				else
-//				{
-//					//index = Collections.indexedBinarySearch(i,t);
-//				}
-//				
-//			}
+			for(int i = 0; i < sortedList.size(); i++)
+			{
+				if(sortedList.get(middle) == t) {
+					index = (int)t;
+				}
+				else if(sortedList.get(middle) == sortedList.get(0)) {
+					return index;
+				}
+				else if (sortedList.get(middle) == sortedList.get(last)){
+					index = last;
+				}
+				
+			}
 			
 			
 		return index;
@@ -392,7 +389,63 @@ public class EvaluationService {
 	public boolean isArmstrongNumber(int input) {
 		// TODO Write an implementation for this method declaration
 		
-		return false;
+		List<Integer> accessDigit = new ArrayList<>();
+		
+		int sum = 0;
+//		int mod = 0;
+//		int count = 0;
+//		int temp = input;
+//		//boolean isArmNumber = false;
+//		
+		while(input > 0) {
+			//accessDigit.add(input % 10);
+			accessDigit.add(input % 10);
+			input = input/10;
+		}
+		
+		System.out.println(accessDigit);
+		
+		for(Integer i: accessDigit) {
+			sum += Math.pow(i, accessDigit.size());
+		}
+		
+		
+		
+		
+		
+		//System.out.println(count);
+//		
+//		switch(count) {
+//			case 1:
+//				sum = input;
+//				System.out.println(sum);
+//				break;
+//			case 2:
+//				sum = input + (mod * mod);
+//				System.out.println(sum);
+//				break;
+//			case 3:
+//				sum = input + (mod * mod * mod);
+//				System.out.println(sum);
+//				break;
+//			case 4:
+//				sum = input + (mod * mod * mod * mod);
+//				System.out.println(sum);
+//				break;
+//			default:
+//				System.out.println("Can't determine Armstrong number");			
+//			
+//		}
+//	}
+		
+		if(sum == input)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	/**
@@ -407,7 +460,19 @@ public class EvaluationService {
 	 */
 	public List<Long> calculatePrimeFactorsOf(long l) {
 		// TODO Write an implementation for this method declaration
-		return null;
+		
+		//for()
+		
+		List<Long> numOfFactors = new ArrayList<Long>();
+		
+		for(long i = 2; i <= l; i++) {
+			while(l % i == 0) {
+				numOfFactors.add(i);
+				l /= i;
+			}
+		}
+		
+		return numOfFactors;
 	}
 
 
@@ -445,6 +510,7 @@ public class EvaluationService {
 		 */
 		public static String encode(String string) {
 			// TODO Write an implementation for this method declaration
+			//Will implement after commit and pushing 
 			return null;
 		}
 
