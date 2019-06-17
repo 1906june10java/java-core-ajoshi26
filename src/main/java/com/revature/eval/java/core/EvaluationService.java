@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class EvaluationService {
 
@@ -510,8 +511,20 @@ public class EvaluationService {
 		 */
 		public static String encode(String string) {
 			// TODO Write an implementation for this method declaration
-			//Will implement after commit and pushing 
-			return null;
+			
+			String message = "";
+			String newString = string.replaceAll("[^\\w\\d]","");
+			
+			
+			for(char letter: newString.toCharArray()) {
+				if(Character.isLetter(letter)) {
+					 message += (char) ('a' + ('z' - letter));
+	            } else {
+	            	message += letter;
+				}
+			}
+			
+			return message.toString();
 		}
 
 		/**
@@ -522,7 +535,25 @@ public class EvaluationService {
 		 */
 		public static String decode(String string) {
 			// TODO Write an implementation for this method declaration
-			return null;
+			//StringBuilder decodedMsg = new StringBuilder();
+			String message = "";
+			String newString = string.replaceAll("[^\\w\\d]","");
+			
+			
+			for(char letter: newString.toCharArray()) {
+				if(Character.isLetter(letter)) {
+					//int newChar = ('Z' - letter) + 'A';
+					 message += (char) ('z' + ('a' - letter));
+	            } else {
+	            	message += letter;
+				}
+			}
+			
+			message.toString();
+			
+			
+			
+			return message.toString();
 		}
 	}
 
@@ -598,8 +629,8 @@ public class EvaluationService {
 		x = Integer.parseInt(X);
 		y = Integer.parseInt(Y);
 		
-		System.out.println(x);
-		System.out.println(y);
+		//System.out.println(x);
+		//System.out.println(y);
 		
 		
 		switch(SplitProblem[3]) {
